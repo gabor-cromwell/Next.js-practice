@@ -1,17 +1,15 @@
 import { useRouter } from "next/router";
 
-const commentId = () => {
-  const router = useRouter();
-  const id = router.query.commentId;
-  //   console.log(id);
+const commentId = (data) => {
+  const { id, body } = data.data.comment;
 
-  //   const fetchComment = async (id) => {
-  //     const response = await fetch(`http://localhost:3005/comments/${id}`);
-  //     const data = await response.json();
-  //     console.log(data);
-  //   };
-
-  return <div>Hello</div>;
+  return (
+    <div key={id}>
+      <p>
+        {id} - {body}
+      </p>
+    </div>
+  );
 };
 
 export default commentId;
